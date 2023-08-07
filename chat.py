@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import requests
 from bardapi.constants import SESSION_HEADERS
 from bardapi import Bard
+from stti import SpeechToTextInterpreter
 
 load_dotenv()
 
@@ -55,6 +56,6 @@ class Chatbot:
             response = get_response(user_input)
             print(response)
 
-
-chatbot = Chatbot()
-chatbot.chat()
+with SpeechToTextInterpreter():
+    chatbot = Chatbot()
+    chatbot.chat()
